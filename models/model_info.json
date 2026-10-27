@@ -1,0 +1,193 @@
+{
+  "model_name": "Logistic Regression",
+  "target": "at_risk (final_score < 40)",
+  "numeric_features": [
+    "study_hours_per_week",
+    "attendance_pct",
+    "previous_sem_gpa",
+    "assignments_submitted_pct",
+    "internal_test_score",
+    "commute_minutes",
+    "sleep_hours"
+  ],
+  "categorical_features": [
+    "part_time_job",
+    "family_support",
+    "internet_access",
+    "extracurricular"
+  ],
+  "feature_labels": {
+    "study_hours_per_week": "Study hours per week",
+    "attendance_pct": "Attendance (%)",
+    "previous_sem_gpa": "Previous semester GPA",
+    "assignments_submitted_pct": "Assignments submitted (%)",
+    "internal_test_score": "Internal test score (out of 50)",
+    "commute_minutes": "Commute (minutes)",
+    "sleep_hours": "Sleep per night (hours)",
+    "part_time_job": "Part-time job",
+    "family_support": "Family support",
+    "internet_access": "Internet access at home",
+    "extracurricular": "Extracurricular activities"
+  },
+  "categories": {
+    "part_time_job": [
+      "No",
+      "Yes"
+    ],
+    "family_support": [
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "internet_access": [
+      "No",
+      "Yes"
+    ],
+    "extracurricular": [
+      "No",
+      "Yes"
+    ]
+  },
+  "numeric_ranges": {
+    "study_hours_per_week": [
+      0.0,
+      31.3
+    ],
+    "attendance_pct": [
+      39.2,
+      100.0
+    ],
+    "previous_sem_gpa": [
+      3.0,
+      10.0
+    ],
+    "assignments_submitted_pct": [
+      39.0,
+      100.0
+    ],
+    "internal_test_score": [
+      7.0,
+      50.0
+    ],
+    "commute_minutes": [
+      5.0,
+      120.0
+    ],
+    "sleep_hours": [
+      4.0,
+      10.0
+    ]
+  },
+  "threshold": 0.15,
+  "target_recall": 0.85,
+  "risk_levels": {
+    "medium_from": 0.15,
+    "high_from": 0.5
+  },
+  "quartiles": {
+    "study_hours_per_week": [
+      7.1,
+      11.350000000000001,
+      15.475
+    ],
+    "attendance_pct": [
+      72.0,
+      79.2,
+      86.3
+    ],
+    "previous_sem_gpa": [
+      5.6775,
+      6.675,
+      7.512499999999999
+    ],
+    "assignments_submitted_pct": [
+      72.0,
+      81.0,
+      90.0
+    ],
+    "internal_test_score": [
+      23.0,
+      27.0,
+      31.0
+    ],
+    "commute_minutes": [
+      15.0,
+      26.0,
+      41.0
+    ],
+    "sleep_hours": [
+      6.3,
+      6.9,
+      7.5
+    ]
+  },
+  "risky_side": {
+    "study_hours_per_week": "low",
+    "attendance_pct": "low",
+    "previous_sem_gpa": "low",
+    "assignments_submitted_pct": "low",
+    "internal_test_score": "low",
+    "commute_minutes": "high",
+    "sleep_hours": "low"
+  },
+  "category_risk_rate": {
+    "part_time_job": {
+      "No": 0.177,
+      "Yes": 0.235
+    },
+    "family_support": {
+      "High": 0.169,
+      "Low": 0.246,
+      "Medium": 0.179
+    },
+    "internet_access": {
+      "No": 0.229,
+      "Yes": 0.184
+    },
+    "extracurricular": {
+      "No": 0.195,
+      "Yes": 0.189
+    }
+  },
+  "train_at_risk_rate": 0.193,
+  "importance_order": [
+    "previous_sem_gpa",
+    "internal_test_score",
+    "study_hours_per_week",
+    "attendance_pct",
+    "internet_access",
+    "family_support",
+    "commute_minutes",
+    "extracurricular",
+    "sleep_hours",
+    "assignments_submitted_pct",
+    "part_time_job"
+  ],
+  "test_metrics": {
+    "accuracy": 0.782,
+    "precision": 0.464,
+    "recall": 0.844,
+    "f1": 0.599,
+    "roc_auc": 0.906,
+    "share_flagged": 0.35
+  },
+  "fairness_by_gender": [
+    {
+      "gender": "Female",
+      "students": 180,
+      "actual at-risk rate": 0.206,
+      "flagged rate": 0.367,
+      "recall": 0.892,
+      "precision": 0.5
+    },
+    {
+      "gender": "Male",
+      "students": 220,
+      "actual at-risk rate": 0.182,
+      "flagged rate": 0.336,
+      "recall": 0.8,
+      "precision": 0.432
+    }
+  ],
+  "train_rows": 1600
+}

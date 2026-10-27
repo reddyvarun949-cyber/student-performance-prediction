@@ -1,0 +1,196 @@
+/* Simple, readable styles. Colours are defined once here so they are easy to change. */
+:root {
+  --ink: #1b263b;
+  --muted: #5b6577;
+  --accent: #0f766e;
+  --accent-dark: #0b5a54;
+  --danger: #b91c1c;
+  --card: #ffffff;
+  --page: #f3f5f8;
+  --border: #d7dde5;
+  --low: #15803d;
+  --medium: #b45309;
+  --high: #b91c1c;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  font: inherit;
+  font-weight: 400;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+input.invalid,
+select.invalid {
+  border-color: var(--danger);
+}
+
+.hint {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+input.invalid + .hint {
+  color: var(--danger);
+}
+
+button {
+  margin-top: 24px;
+  font: inherit;
+  font-weight: 600;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fdecec;
+  color: var(--danger);
+  border: 1px solid #f5c2c2;
+}
+
+.hint.error {
+  color: var(--danger);
+}
+
+/* ---- result card ---- */
+.result {
+  border-left: 6px solid var(--border);
+}
+
+.result.low { border-left-color: var(--low); }
+.result.medium { border-left-color: var(--medium); }
+.result.high { border-left-color: var(--high); }
+
+.result .big {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 4px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.badge.low { background: var(--low); }
+.badge.medium { background: var(--medium); }
+.badge.high { background: var(--high); }
+
+/* Probability bar: grey track, coloured fill, thin black line at the alert threshold */
+.bar {
+  position: relative;
+  height: 14px;
+  background: #e5e9ef;
+  border-radius: 999px;
+  overflow: visible;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.bar-fill.low { background: var(--low); }
+.bar-fill.medium { background: var(--medium); }
+.bar-fill.high { background: var(--high); }
+
+.bar-marker {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 22px;
+  background: var(--ink);
+}
+
+.verdict {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.result ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
